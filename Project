@@ -1,0 +1,79 @@
+#library function to generate random functions
+import random
+
+#limit responses from the user to only 3: rock, paper, scissors by defintion
+def validinput():
+    while True:
+        answer = input("Let's play rock, paper, scissors! Winner wins best out of 3!").lower()
+        if answer in ["rock", "paper", "scissors"]:
+            return answer
+        else:
+            print("Invalid input. Please type a valid response to play.")
+
+wonr1 = wonr2 = wonr3 = False #set the values to false to then convert them to True if the player wins a round
+
+my_list = ["rock", "paper", "scissors"] 
+computer = (random.choice(my_list))
+answer = validinput() #initiates round 1 
+
+print(f"Computer chose: {computer}")
+
+if answer == computer:
+    print("It's a tie, let's proceed onto round 2!")
+    
+elif (answer == "rock" and computer == "scissors") or \
+     (answer == "scissors" and computer == "paper") or \
+     (answer == "paper" and computer == "rock"):
+    print("Round 1: You won! Let's proceed onto round 2!") 
+    wonr1 = True #changes value from false to true for player
+    
+else:
+    print("Round 1:You lost..let's proceed onto round 2!") 
+
+my_list2 = ["papers", "scissors", "rock"]
+computer2 = (random.choice(my_list2))
+answer2 = validinput() #initiates round 2 
+
+print(f"Computer chose: {computer2}")
+
+if answer2 == computer2:
+    print("It's a tie..let's proceed onto round 3!")
+    
+elif (answer2 == "rock" and computer2 == "scissors") or \
+     (answer2 == "scissors" and computer2 == "paper") or \
+     (answer2 == "paper" and computer2 == "rock"):
+    print("Round 2: You won...let's proceed onto round 3!")
+    wonr2 = True #changes value from false to true 
+    
+else:
+    print("Round 2:You lost..let's proceed onto round 3..")
+    
+my_list3 = ["scissors", "rock", "paper"]
+computer3 = (random.choice(my_list3))
+answer3 = validinput() #initiates round 3 
+
+print(f"Computer chose: {computer3}")
+
+if answer3 == computer3:
+    print("It's a tie!")
+    
+elif (answer3 == "rock" and computer3 == "scissors") or \
+     (answer3 == "scissors" and computer3 == "paper") or \
+     (answer3 == "paper" and computer3 == "rock"):
+    print("Round 3: You won!") 
+    wonr3 = True #changes value for player from false to true 
+    
+else:
+    print("Round 3:You lost..")
+    
+#possibilities for the player to win    
+if (wonr1 and wonr3 == True) or \
+   (wonr1 and wonr2 == True) or \
+   (wonr2 and wonr3 == True): 
+   print("Congrats you won!")
+else:
+    print("Good job trying, but you failed. Try again! :)")
+
+
+
+
